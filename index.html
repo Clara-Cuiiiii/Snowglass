@@ -335,9 +335,8 @@ const camera = new Camera(videoElement, {
     width: 1280, height: 720
 });
 
-document.getElementById('btn-camera').addEventListener('click', () => {
-    document.getElementById('status-text').innerText = "正在请求摄像头...";
-    camera.start().then(() => {
+// 删除那个 addEventListener，直接写这一行
+camera.start();
         state.isCameraReady = true;
         document.getElementById('loading').style.opacity = '0';
         setTimeout(() => document.getElementById('loading').style.display = 'none', 500);
